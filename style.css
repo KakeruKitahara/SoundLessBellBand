@@ -3,3 +3,9 @@ p {
     text-align: center;
     font-size: 24px;
 }
+
+.inner {
+    color: red;
+    text-align: : center;
+    font-size: 30px;
+}
