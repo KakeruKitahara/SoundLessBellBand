@@ -1,0 +1,10 @@
+.red {
+  background-color: red;
+  border: solid red;
+}
+
+.white {
+  background-color: white;
+  border: solid white;
+  color: black;
+}

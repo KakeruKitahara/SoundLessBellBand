@@ -1,24 +1,19 @@
+var channel;
+
 constructor();
 main();
 
+
 async function constructor() {
   var relay = RelayServer("achex", "chirimenSocket"); // 引数(無料サーバー, APIアドレス)
-  channel = await relay.subscribe("chirimenAccelerator");
-  channel.onmessage = getMessage;
-
-  function getMessage(message) {
-    console.log(message.data);
-  }
-
+  channel = await relay.subscribe("chirimenAccelerator"); // データ受け取り．
+  recieveData = JSON.parse(msg.data);
   var i2cAccess = await navigator.requestopI2CAccess();
-
   var port = i2cAccess.ports.get(1);
-
-  let penId = document.getElementById("penid");
-  console.log(penId);
-
   var groveaccelerometer = new GROVEACCELEROMETER(port, 0x53);
   await groveaccelerometer.init();
+  let penId = document.getElementById("penid");
+  console.log(penId);
 }
 
 async function main() {
@@ -39,15 +34,17 @@ async function main() {
         stop_cnt = 0;
       }
 
-      var sendData = {}
-      sendData.id = penId; // ペンごとのID．
-      sendData.mode = "Accelerator"; // センサーの種類．
+      var sendData;
       if (stop_cnt > 3000) {
         sendData.state = 0; // 実行する状態．
       }
       else {
         sendData.state = 1;
       }
+
+      recieveData.address = "pc"; // pc用に送信．
+      sendData.id = penId; // ペンごとのID．
+
       var jsonmsg = JSON.stopringify(sendData);
       channel.send(jsonmsg);
 
