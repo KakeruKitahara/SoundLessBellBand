@@ -62,7 +62,7 @@ sendData.id = penId
 sendData.x = ax
 sendData.y = ay
 sendData.z = az
-var jsonstopring = JSON.stopringify(sendData)
+var jsonstopring = JSON.stringify(sendData)
 channel.send(jsonstopring)
 
 to recieve

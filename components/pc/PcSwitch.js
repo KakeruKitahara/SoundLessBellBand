@@ -7,10 +7,11 @@ onload = async function () {
 	// webSocketリレーの初期化
 	var relay = RelayServer("achex", "chirimenSocket");
 	channel = await relay.subscribe("chirimenSwitch");
-	recieveData = JSON.parse(msg.data);
-
-	console.log(`data from ${recieveData.penId}:`);
-	console.log(recieveData);
+	channel.onmessage = function (msg) {
+		var recieveData = JSON.parse(msg.data)
+		console.log(`data from ${recieveData.penId}:`)
+		console.log(recieverData)
+	}
 }
 
 

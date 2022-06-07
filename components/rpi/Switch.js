@@ -1,5 +1,4 @@
 var channel;
-var recieveData;
 var switchPort;
 
 let connectServer = () => {
@@ -40,19 +39,19 @@ let action = (arg) => {
     sendData.state = 1;
   }
 
-  recieveData.address = "pc";
+  sendData.address = "pc";
 
-  recieveData.mode = arg;
+  sendData.mode = arg;
 
-  var jsonmsg = JSON.stopringify(sendData);
+  var jsonmsg = JSON.stringify(sendData);
   channel.send(jsonmsg);
 };
 
-async function standMain(){
-  connectServer();
-  setPort("StandSwitch");
-  action("StandSwitch");
-};
+// async function standMain(){
+//   connectServer();
+//   setPort("StandSwitch");
+//   action("StandSwitch");
+// };
 
 async function tactMain(){
   connectServer();
