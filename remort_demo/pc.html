@@ -9,25 +9,47 @@
 
 <link rel="stylesheet" href="./pc.css">
 <script src="https://r.chirimen.org/relayserver.js"></script>
-
-<!-- <script src="../components/pc/DemoLV.js"></script> -->
-<script src="../components/pc/PcSwitch.js"></script>
-
 </head>
 <body>
-<div class="btn-group">
-  <button type="button" class="btn btn-secondary dropdown-toggle white" data-bs-toggle="dropdown" aria-expanded="false" id="penid1">
-    test
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
-idbox<input type="text" id="idbox">
+
+  idbox<input type="text" id="idbox">
 statebox<input type="text" id="textbox">
+
+
+<button class="btn white" id="penid1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  Button with data-bs-target
+</button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      No1
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+
+    <div class="log" id="log1">
+      seatstate1 : <div class="sheatstate" id="seatstate1">aa</div>
+  </div>
+</div>
+
+
+
+
+
+
+<script src="../components/pc/SeatJudge.js"></script>
 </body>
 </html>
