@@ -25,7 +25,7 @@ async function connectServer(arg) {
 
 function action(val) {
   var sendData = {};
-  sendData.id = penId.textContentS;
+  sendData.id = penId.textContent;
   if (val === 0) {
     // スイッチON
     sendData.state = true;

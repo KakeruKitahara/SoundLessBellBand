@@ -6,8 +6,7 @@ var recieveData;
 onload = async function () {
 	// webSocketリレーの初期化
 	var relay = RelayServer("achex", "chirimenSocket");
-	channel = await relay.subscribe("chirimenSwitch");
-
+	channel = await relay.subscribe("chirimen");
 	channel.onmessage = RecieveAction; // データを受け取る．
 }
 
