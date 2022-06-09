@@ -2,8 +2,7 @@ var prevflag = -1, onflag = -1;
 var cnt = 0;
 
 function seatJudge(argReceiveData) { // ボタンを押すとこの関数内を実行する．
-	recieveData = argReceiveData;
-	console.log(cnt);
+	let recieveData = argReceiveData;
 
 	if (recieveData.address === "pc" && recieveData.mode === "TactSwitch") {
 

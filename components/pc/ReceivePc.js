@@ -1,4 +1,4 @@
-import seatJudge from "./SeatJudge";
+import seatJudge from "./SeatJudge.js";
 
 async function receivePc(arg){
   let receiveData = arg.receiveData;
