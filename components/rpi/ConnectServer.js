@@ -1,4 +1,3 @@
-let recieveData;
 let channel;
 
 async function connectServer() {
@@ -6,13 +5,8 @@ async function connectServer() {
 	channel = await relay.subscribe("chirimenIOT");
   console.log("open : chirimenIOT");
 
-  channel.onmessage = RecieveMsg;
-
-  return {channel : channel, recieveData : recieveData};
+  return channel;
 }
 
-function RecieveMsg(msg) {
-  recieveData = JSON.parse(msg.data);
-}
 
 export default connectServer;

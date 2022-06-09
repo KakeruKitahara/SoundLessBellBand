@@ -5,7 +5,7 @@ import sendRpi from "./SendRpi.js";
 rpi();
 
 async function rpi(){
-let chRe = await connectServer();
-receiveRpi(chRe);
-sendRpi(chRe);
+let channel = await connectServer();
+receiveRpi(channel);
+sendRpi(channel);
 };

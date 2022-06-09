@@ -1,7 +1,7 @@
-import demoLv from "./DemoLV.js";
+// import demoLv from "./DemoLV.js";
 
 function sendPc (arg) {
-  let channel = arg.channel;
+  let channel = arg;
    // demoLv(channel);
 }
 

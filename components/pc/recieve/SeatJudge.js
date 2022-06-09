@@ -2,15 +2,15 @@ var prevflag = -1, onflag = -1;
 var cnt = 0;
 
 function seatJudge(argReceiveData) { // ボタンを押すとこの関数内を実行する．
-	let recieveData = argReceiveData;
+	let receiveData = argReceiveData;
 
-	if (recieveData.address === "pc" && recieveData.mode === "TactSwitch") {
+
 
 		prevflag = onflag;
-		if (recieveData.state === true) {
+		if (receiveData.state === true) {
 			onflag = 1;
 		}
-		if (recieveData.state === false) {
+		if (receiveData.state === false) {
 			onflag = 0;
 		}
 
@@ -39,7 +39,7 @@ function seatJudge(argReceiveData) { // ボタンを押すとこの関数内を�
 			}
 
 		}
-	}
+
 }
 
 export default seatJudge;

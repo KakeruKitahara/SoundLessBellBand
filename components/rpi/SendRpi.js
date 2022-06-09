@@ -1,7 +1,7 @@
-import switchRpi from "./SwitchRpi.js";
+import switchRpi from "./send/SwitchRpi.js";
 
 async function sendRpi(arg){
-  let channel = arg.channel;
+  let channel = arg;
   switchRpi("TactSwitch", channel);
 }
 

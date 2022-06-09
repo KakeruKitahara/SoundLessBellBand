@@ -5,7 +5,7 @@ import sendPc from "./SendPc.js";
 pc();
 
 async function pc() {
-  let chRe = await connectServer();
-  receivePc(chRe);
-  sendPc(chRe);
+  let channel = await connectServer();
+  receivePc(channel);
+  sendPc(channel);
 };
