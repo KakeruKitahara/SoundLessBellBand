@@ -1,5 +1,3 @@
-
-
 async function lightVibration(receiveData) {
   if (receiveData.mode === "Light" || receiveData.mode === "Vibration") {
     let num;
@@ -15,15 +13,24 @@ async function lightVibration(receiveData) {
     await port.export("out"); // ポートを出力モードに設定．
 
     let penId = document.getElementById("penid");
-    console.log(penId);
+    console.log(penId.textContent);
 
-    while (true) {
-      if (receiveData.state === 1) {
-        await port.write(1); // 点灯．
+    if (receiveData.state === -2) {
+      console.log("light : 1");
+      for (let i = 0; i < 3; i++) {
+        await port.write(1);
+        await sleep(100);
+        await port.write(0);
+        await sleep(100);
       }
-      else {
-        await port.write(0); // 消灯．
-      }
+    } else {
+      console.log("light : 0");
+      await port.write(1);
+      await sleep(100);
+      await port.write(0);
+      await sleep(100);
     }
   }
-};
+}
+
+export default lightVibration;
