@@ -2,18 +2,18 @@
 
 var channel;
 
-function demoLv(){
+function demoLv(channel){
 	const selectstate1 = document.getElementById("seatstate1");
 
 	var mo = new MutationObserver(() => {
+
 		let sendData = {};
 		var seatState = JSON.parse(selectstate1.textContent);
 		if (seatState === -1) {
 			sendData.mode = "Light";
 			sendData.address = "RPi";
-			sendData.state = document.getElementById("textbox");
+			sendData.state = JSON.parse(document.getElementById("textbox").value);
 			var jsonmsg = JSON.stringify(sendData);
-			console.log(sendData.state.value);
 			channel.send(jsonmsg);
 		}
 	});

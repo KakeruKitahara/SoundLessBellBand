@@ -1,21 +1,22 @@
-import seatJudge from "./recieve/SeatJudge.js";
+import seatJudge from "./receive/SeatJudge.js";
 
 async function receivePc(arg) {
   let channel = arg;
-  channel.onmessage = RecieveMsg;
+  channel.onmessage = receiveMsg;
 }
 
-function RecieveMsg(msg) {
-  recieveData = JSON.parse(msg.data);
+function receiveMsg(msg) {
+  let receiveData = JSON.parse(msg.data);
 
   if (receiveData.address === "pc" && receiveData.mode === "TactSwitch") {
-    seatJudge(receiveData);
+    seatJudge();
+    
   }
   if (receiveData.address === "pc" && receiveData.mode === "StandSwitch") {
-    seatJudge(receiveData);
+
   }
   if (receiveData.address === "pc" && receiveData.mode === "Accelerator") {
-    seatJudge(receiveData);
+
   }
 }
 

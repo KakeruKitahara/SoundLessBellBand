@@ -8,7 +8,7 @@ async function receiveRPi(arg) {
 function RecieveMsg(msg) {
   recieveData = JSON.parse(msg.data);
 
-  if (receiveData.address === "RPi" && receiveData.mode === "Light") {
+  if (receiveData.address === "RPi" && receiveData.mode === "Light" || receiveData.mode === "Vibration") {
     lightVibration(receiveData);
   }
 }
