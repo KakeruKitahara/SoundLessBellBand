@@ -3,7 +3,7 @@ var recieveData;
 
 let connectServer = () => {
   var relay = RelayServer("achex", "chirimenSocket"); // 引数(無料サーバー, APIアドレス)
-  channel = await relay.subscribe("chirimenLightVibration");
+  channel = await relay.subscribe("chirimenIOT");
 
   recieveData = JSON.parse(msg.data);
   console.log(`data from ${recieveData.penId}:`);

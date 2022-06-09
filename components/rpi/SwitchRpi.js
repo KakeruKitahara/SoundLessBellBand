@@ -2,20 +2,18 @@ var channel;
 var switchPort;
 let penId;
 
-tactMain();
 
-async function connectServer(arg) {
-  var relay = RelayServer("achex", "chirimenSocket"); // 引数(無料サーバー, APIアドレス)
-  channel = await relay.subscribe("chirimenSwitch");
+async function switchRpi(argStr, argChannnel) {
+  channel = argChannnel;
   penId = document.getElementById("penid");
   console.log(penId.textContent);
 
   var gpioAccess = await navigator.requestGPIOAccess();
   let num = 6;
-  if (arg === "StandSwitch") {
+  if (argStr === "StandSwitch") {
     num = 999; // ペン置きスイッチなら999番ポートに接続する．
   }
-  if (arg === "TactSwitch") {
+  if (argStr === "TactSwitch") {
     num = 6; // タクトスイッチならば5番ポートを操作する．
   }
   switchPort = gpioAccess.ports.get(num);
@@ -42,12 +40,10 @@ function action(val) {
   channel.send(jsonmsg);
 }
 
+export default switchRpi;
+
 // async function standMain(){
 //   connectServer();
 //   setPort("StandSwitch");
 //   action("StandSwitch");
 // };
-
-async function tactMain() {
-  connectServer("TactSwitch");
-}

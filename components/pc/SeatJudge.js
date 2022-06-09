@@ -1,23 +1,12 @@
-// スイッチや加速度センサの情報を受け取り，pc側を変更させる．
-
-var channel;
-var recieveData;
-
-onload = async function () {
-	// webSocketリレーの初期化
-	var relay = RelayServer("achex", "chirimenSocket");
-	channel = await relay.subscribe("chirimen");
-	channel.onmessage = RecieveAction; // データを受け取る．
-}
-
-
 var prevflag = -1, onflag = -1;
 var cnt = 0;
 
-function RecieveAction(msg) { // ボタンを押すとこの関数内を実行する．
-	let recieveData = JSON.parse(msg.data);
-	// console.log(recieveData);
+function seatJudge(argReceiveData) { // ボタンを押すとこの関数内を実行する．
+	recieveData = argReceiveData;
+	console.log(cnt);
+
 	if (recieveData.address === "pc" && recieveData.mode === "TactSwitch") {
+
 		prevflag = onflag;
 		if (recieveData.state === true) {
 			onflag = 1;
@@ -53,3 +42,5 @@ function RecieveAction(msg) { // ボタンを押すとこの関数内を実行�
 		}
 	}
 }
+
+export default seatJudge;

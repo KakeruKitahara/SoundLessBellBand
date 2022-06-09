@@ -6,7 +6,7 @@ main();
 
 async function constructor() {
   var relay = RelayServer("achex", "chirimenSocket"); // 引数(無料サーバー, APIアドレス)
-  channel = await relay.subscribe("chirimenAccelerator"); // データ受け取り．
+  channel = await relay.subscribe("chirimenIOT"); // データ受け取り．
   recieveData = JSON.parse(msg.data);
   var i2cAccess = await navigator.requestopI2CAccess();
   var port = i2cAccess.ports.get(1);
