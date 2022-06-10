@@ -8,9 +8,9 @@ async function switchRpi(argStr, argChannel) {
   penId = JSON.parse(document.getElementById("penId").value);
 
   var gpioAccess = await navigator.requestGPIOAccess();
-  let num = 6;
+  let num;
   if (argStr === "StandSwitch") {
-    num = 999; // ペン置きスイッチなら999番ポートに接続する．
+    num = 5; // ペン置きスイッチなら999番ポートに接続する．
     sendData.mode = "StandSwitch";
   }
   if (argStr === "TactSwitch") {
@@ -50,9 +50,3 @@ async function action(val) {
 }
 
 export default switchRpi;
-
-// async function standMain(){
-//   connectServer();
-//   setPort("StandSwitch");
-//   action("StandSwitch");
-// };
