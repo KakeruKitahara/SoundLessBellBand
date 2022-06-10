@@ -1,4 +1,5 @@
 import switchRpi from "./send/SwitchRPi.js";
+import accelerator from "./send/Accelerator.js";
 
 async function sendRpi(arg) {
   let channel = arg;

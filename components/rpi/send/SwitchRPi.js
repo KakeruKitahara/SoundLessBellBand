@@ -1,13 +1,12 @@
 var channel;
-var cnt = 0;
+var seconds = 0;
 var sendData = {};
+let penId;
 
 async function switchRpi(argStr, argChannel) {
   channel = argChannel;
-  let penId = document.getElementById("penid");
+  penId = document.getElementById("penid");
   console.log(penId.textContent);
-
-
 
   var gpioAccess = await navigator.requestGPIOAccess();
   let num = 6;
@@ -20,8 +19,7 @@ async function switchRpi(argStr, argChannel) {
     sendData.mode = "TactSwitch";
   }
   setInterval(() => {
-    cnt++;
-    console.log(cnt);
+    seconds++;
   }, 1000);
   let switchPort = gpioAccess.ports.get(num);
   await switchPort.export("in");
@@ -29,7 +27,7 @@ async function switchRpi(argStr, argChannel) {
 }
 
 async function action(val) {
-  if (cnt >= 2) {
+  if (seconds >= 2) {
     // チャタリング対策のため2秒以上の間隔が必要なので設定．
     sendData.id = penId.textContent;
     if (val === 0) {
@@ -44,7 +42,7 @@ async function action(val) {
     var jsonmsg = JSON.stringify(sendData);
 
     channel.send(jsonmsg);
-    cnt = 0;
+    seconds = 0;
   }
 }
 
