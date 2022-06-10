@@ -8,16 +8,10 @@ async function receivePc(arg) {
 function receiveMsg(msg) {
   let receiveData = JSON.parse(msg.data);
 
-  if (receiveData.address === "pc" && receiveData.mode === "TactSwitch") {
-    seatJudge();
-    
+  if (receiveData.address === "Pc") {
+    seatJudge(receiveData);
   }
-  if (receiveData.address === "pc" && receiveData.mode === "StandSwitch") {
 
-  }
-  if (receiveData.address === "pc" && receiveData.mode === "Accelerator") {
-
-  }
 }
 
 

@@ -1,25 +1,17 @@
-var channel;
 
-constructor();
-main();
-
-
-async function constructor() {
-  var relay = RelayServer("achex", "chirimenSocket"); // 引数(無料サーバー, APIアドレス)
-  channel = await relay.subscribe("chirimenIOT"); // データ受け取り．
-  recieveData = JSON.parse(msg.data);
+async function accelerator(argChannel) {
+  channel = argChannel;
   var i2cAccess = await navigator.requestopI2CAccess();
   var port = i2cAccess.ports.get(1);
   var groveaccelerometer = new GROVEACCELEROMETER(port, 0x53);
   await groveaccelerometer.init();
-  let penId = document.getElementById("penid");
+  let penId = document.getElementById("penid").textContent;
   console.log(penId);
-}
 
-async function main() {
-  let stop_cnt; // 動き出すフラグカウント変数．
-  let margin_act_cnt; // 止まっている時間をカウントする変数．
-  while (1) {
+  let stop_cnt = 0; // 動き出すフラグカウント変数．
+  let margin_act_cnt = 0; // 止まっている時間をカウントする変数．
+
+  setInterval(() => {
     try {
       var xyz_values = await groveaccelerometer.read();
       if (xyz_values.x < 2 && xyz_values.x > -2) {
@@ -29,31 +21,30 @@ async function main() {
       }
 
       // 逆に15秒以内の動作であれば"停止"と判定して，カウントをリセットしない．
-      if (margin_act_cnt > 150) {
+      if (margin_act_cnt > 15) {
         margin_act_cnt = 0;
         stop_cnt = 0;
       }
 
-      var sendData;
-      if (stop_cnt > 3000) {
-        sendData.state = 0; // 実行する状態．
+      var sendData = {};
+      if (stop_cnt > 60) {
+        sendData.state = 1; // 実行する状態．
+        sendData.mode = "Accelerator";
+        sendData.address = "Pc"; // pc用に送信．
+        sendData.id = penId; // ペンごとのID．
+
+        var jsonmsg = JSON.stopringify(sendData);
+        console.log(sendData);
+        channel.send(jsonmsg);
       }
-      else {
-        sendData.state = 1;
-      }
-
-      recieveData.address = "pc"; // pc用に送信．
-      sendData.id = penId; // ペンごとのID．
-
-      var jsonmsg = JSON.stopringify(sendData);
-      channel.send(jsonmsg);
-
     } catch (err) {
       console.log("READ ERROR:" + err);
     }
-    await sleep(100); // 0.1ごとに検知．
-  }
-}
+  }, 1000);
+};
+
+export default accelerator;
+
 
 
 /*to send
@@ -67,8 +58,8 @@ channel.send(jsonstopring)
 
 to recieve
 channel.onmessage = function (msg) {
-  var recieveData = JSON.parse(msg.data)
-  console.log(`data from ${recieveData.penId}:`)
+  var sendData = JSON.parse(msg.data)
+  console.log(`data from ${sendData.penId}:`)
   console.log(recieverData)
 }
 */

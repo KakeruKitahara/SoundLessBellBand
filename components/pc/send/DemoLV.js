@@ -1,18 +1,19 @@
 // スイッチや加速度センサの情報を受け取り，pc側を変更させる．
+let prevState = -5;
+let onState = -5;
 
-var channel;
-
-function demoLv(channel){
+function demoLv(channel) {
 	const selectstate1 = document.getElementById("seatstate1");
 
 	var mo = new MutationObserver(() => {
-
+		prevState = onState;
 		let sendData = {};
-		var seatState = JSON.parse(selectstate1.textContent);
-		if (seatState === -1) {
+		sendData.address = "RPi";
+		onState = JSON.parse(selectstate1.textContent);
+		sendData.state = onState;
+		if (onState === -1 || (prevState === -1 && onState === 0)) {
 			sendData.mode = "Light";
-			sendData.address = "RPi";
-			sendData.state = JSON.parse(document.getElementById("textbox").value);
+
 			var jsonmsg = JSON.stringify(sendData);
 			channel.send(jsonmsg);
 		}
