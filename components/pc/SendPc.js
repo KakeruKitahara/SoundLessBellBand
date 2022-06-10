@@ -1,8 +1,8 @@
-import demoLv from "./send/DemoLV.js";
+import onLight from "./send/OnLight.js";
 
 function sendPc(arg) {
   let channel = arg;
-  demoLv(channel);
+  onLight(channel);
 }
 
 export default sendPc;

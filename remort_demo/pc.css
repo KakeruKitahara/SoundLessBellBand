@@ -1,10 +1,21 @@
-.red {
-  background-color: red;
-  border: solid red;
+.color-gray {
+  background-color: #888888;
+  border: solid #000;
 }
 
-.white {
-  background-color: white;
-  border: solid white;
-  color: black;
+.color-white {
+  background-color: #fff;
+  border: solid #000;
+  color: #000;
+}
+
+.color-green {
+  background-color: #1bff0f;
+  border: solid #000;
+  color: #000;
+}
+
+.color-red {
+  background-color: #ff2121;
+  border: solid #000;
 }
