@@ -1,3 +1,19 @@
+.button-list {
+  font-size: 18px;
+  font-weight: 600;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.name-line {
+  margin: 0 10px;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+}
+
 .color-gray {
   background-color: #888888;
   border: solid #000;
@@ -18,4 +34,8 @@
 .color-red {
   background-color: #ff2121;
   border: solid #000;
+}
+
+.log {
+  /*  display: none; */
 }

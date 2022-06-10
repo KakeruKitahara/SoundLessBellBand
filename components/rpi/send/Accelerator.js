@@ -14,9 +14,7 @@ async function accelerator(argChannel) {
   var port = i2cAccess.ports.get(1);
   groveaccelerometer = new GROVEACCELEROMETER(port, 0x53);
   await groveaccelerometer.init();
-  penId = document.getElementById("penid").textContent;
-  console.log(penId);
-
+  penId = document.getElementById("penId").textContent;
   setInterval(action, 1000);
 }
 
@@ -47,7 +45,11 @@ async function action() {
   var sendData = {};
   sendData.mode = "Accelerator";
   sendData.address = "Pc"; // pc用に送信．
-  sendData.id = penId; // ペンごとのID．
+  
+  sendData.id = JSON.parse(penId.textContent); // ペンごとのID．
+
+  console.log(sendData.id);
+
   if (stop_cnt > 10) {
     sendData.state = 1; // 実行する状態．
   } else {

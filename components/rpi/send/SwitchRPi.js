@@ -5,8 +5,7 @@ let penId;
 
 async function switchRpi(argStr, argChannel) {
   channel = argChannel;
-  penId = document.getElementById("penid");
-  console.log(penId.textContent);
+  penId = document.getElementById("penId");
 
   var gpioAccess = await navigator.requestGPIOAccess();
   let num = 6;
@@ -27,9 +26,12 @@ async function switchRpi(argStr, argChannel) {
 }
 
 async function action(val) {
-  if (seconds >= 2) {
-    // チャタリング対策のため2秒以上の間隔が必要なので設定．
-    sendData.id = penId.textContent;
+  if (seconds >= 2) { // チャタリング対策のため2秒以上の間隔が必要なので設定．
+
+    sendData.id = JSON.parse(penId.textContent);
+
+    console.log(sendData.id);
+    
     if (val === 0) {
       // Standswichに必要な状態値．
       sendData.state = true;

@@ -1,30 +1,44 @@
-// スイッチや加速度センサの情報を受け取り，pc側を変更させる．
-let prevState = -5;
-let onState = -5;
+const SEATSIZE = 3;
+
+let prevState = [...Array(SEATSIZE)].map(() => -5);
+let onState = [...Array(SEATSIZE)].map(() => -5);
+
+
 
 function onLight(channel) {
-  const selectstate1 = document.getElementById("seatstate1");
 
-  var mo = new MutationObserver(() => {
-    prevState = onState;
-    let sendData = {};
-    sendData.address = "RPi";
-    onState = JSON.parse(selectstate1.textContent);
-    sendData.state = onState;
-    if (onState === -1 || (prevState === -1 && onState === 0)) {
-      sendData.mode = "Light";
 
-      var jsonmsg = JSON.stringify(sendData);
-      channel.send(jsonmsg);
-    }
-  });
+  let seatStr = "statusState";
 
-  mo.observe(selectstate1, {
-    childList: true,
-  });
+  for (let id = 1; id <= SEATSIZE; id++) {
+
+    const selectstate = document.getElementById(seatStr + id);
+
+    var mo = new MutationObserver(() => {
+      prevState[id - 1] = onState[id - 1];
+      let sendData = {};
+      sendData.address = "RPi";
+      onState[id - 1] = JSON.parse(selectstate.textContent);
+
+      console.log(id);
+      console.log(prevState);
+      console.log(onState);
+      
+      sendData.state = onState[id - 1];
+      if (onState[id - 1] === -1 || (prevState[id - 1] === -1 && onState[id - 1] === 0)) {
+        sendData.mode = "Light";
+
+        var jsonmsg = JSON.stringify(sendData);
+        channel.send(jsonmsg);
+      }
+    });
+
+    mo.observe(selectstate, {
+      childList: true,
+    });
+  }
 }
 
-export default onLight;
 
-// sendData.id = 1;
-// sendData.id = document.getElementById('idbox');
+
+export default onLight;

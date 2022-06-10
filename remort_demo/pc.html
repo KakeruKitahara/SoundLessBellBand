@@ -17,46 +17,106 @@
 
 <body>
 
-  idbox<input type="text" id="idbox">
-  statebox<input type="text" id="textbox">
+  <!-- タイトル  -->
+  <h1> IOT</h1>
 
+  <!-- button1  -->
 
-  <button class="btn color-white" id="penid1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample">
-    Button with data-bs-target
+  <button class="btn color-white" id="btn1" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <div class="pen-id" id="penId1">No.1</div>
   </button>
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name"
+          id="playerName1">No.1</span></h3>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <hr class="name-line">
     <div class="offcanvas-body">
-      <div>
-        No1
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-          data-bs-toggle="dropdown">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
 
-      <div class="log" id="log1">
-        seatstate1 : <div class="seatstate" id="seatstate1">0</div>
+      <ul class="button-list">
+        <li>ID : No.1</li>
+        <li>状態 : <span class="seat-state" id="seatState1"></span></li>
+        <li>手が止まった回数 : <span class="hand-stop-times" id="handStopTimes1"></span></li>
+        <li>メモ</li>
+        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+      </ul>
+      <div class="status" id="status1">
+        <div>seat state : <span class="status-state" id="statusState1">a</span></div>
+        <div> id : <span class="status-id" id="statusId1">1</span></div>
       </div>
     </div>
+  </div>
+
+  <!-- button2  -->
+
+  <button class="btn color-white" id="btn2" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample2" aria-controls="offcanvasExample2">
+    <div class="pen-id" id="penId2">No.2</div>
+  </button>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name"
+          id="playerName2">No.2</span></h3>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <hr class="name-line">
+    <div class="offcanvas-body">
+
+      <ul class="button-list">
+        <li>ID : No.2</li>
+        <li>状態 : <span class="seat-state" id="seatState2"></span></li>
+        <li>手が止まった回数 : <span class="hand-stop-times" id="handStopTimes2"></span></li>
+        <li>メモ</li>
+        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+      </ul>
+      <div class="status" id="status1">
+        <div>seat state : <span class="status-state" id="statusState2">a</span></div>
+        <div> id : <span class="status-id" id="statusId2">2</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- button3  -->
+
+  <button class="btn color-white" id="btn3" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample3" aria-controls="offcanvasExample3">
+    <div class="pen-id" id="penId3">No.3</div>
+  </button>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample3" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name"
+          id="playerName3">No.3</span></h3>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <hr class="name-line">
+    <div class="offcanvas-body">
+
+      <ul class="button-list">
+        <li>ID : No.3</li>
+        <li>状態 : <span class="seat-state" id="seatState3"></span></li>
+        <li>手が止まった回数 : <span class="hand-stop-times" id="handStopTimes3"></span></li>
+        <li>メモ</li>
+        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+      </ul>
+      <div class="status" id="status1">
+        <div>seat state : <span class="status-state" id="statusState3">a</span></div>
+        <div> id : <span class="status-id" id="statusId3">3</span></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ステータスをスイッチ  -->
 
 
 
 
 
-    <script type="module" src="../components/pc/Pc.js"></script>
+  <script type="module" src="../components/pc/Pc.js"></script>
 </body>
 
 </html>
