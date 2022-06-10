@@ -7,7 +7,7 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 	let statusState = "statusState" + penId;
 	btn = "btn" + penId;
 
-	console.log("seat : " + statusState + " " + btn);
+	console.log(statusState + " " + btn);
 
 	if (receiveData.mode === "TactSwitch") {
 		switch_cnt++;
@@ -35,11 +35,14 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 			console.log("red!");
 			colorChange("color-red");
 			document.getElementById(statusState).innerHTML = 1;
+			let btnStr = "callBtn";
+			document.getElementById(btnStr + penId).classList.add("btn-lg");
 		}
 		else {
 			console.log("white!");
 			colorChange("color-white");
 			document.getElementById(statusState).innerHTML = 0;
+			document.getElementById(btnStr + penId).classList.remove("btn-lg");
 		}
 	}
 	else if (receiveData.mode === "StandSwitch") {
