@@ -1,11 +1,14 @@
 var switch_cnt = 0;
 let btn;
+let statusState;
+let seatState;
 
 async function seatJudge(receiveData) { // ボタンを押すとこの関数内を実行する．
 
 	let penId = receiveData.id;
-	let statusState = "statusState" + penId;
+	statusState = "statusState" + penId;
 	btn = "btn" + penId;
+	seatState = "seatState" + penId;
 
 	console.log(statusState + " " + btn);
 
@@ -13,13 +16,11 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 		switch_cnt++;
 		if (switch_cnt % 2 === 1) { // 1度押したら赤色に変化．
 			console.log("gray!");
-			colorChange("color-gray");
-			document.getElementById(statusState).innerHTML = -1;
+			seatChange("color-gray");
 		}
 		else {
 			console.log("white!");
-			colorChange("color-white");
-			document.getElementById(statusState).innerHTML = 0;
+			seatChange("color-white");
 			// 0 : 通常
 			// -1 : 秘匿
 			// 1 : 質問
@@ -30,19 +31,17 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 		if (switch_cnt % 2 === 1) {
 			return;
 		}
+		let btnStr = "callBtn";
 
 		if (receiveData.state === 1) { // 1度押したら赤色に変化．
 			console.log("red!");
-			colorChange("color-red");
-			document.getElementById(statusState).innerHTML = 1;
-			let btnStr = "callBtn";
-			document.getElementById(btnStr + penId).classList.add("btn-lg");
+			seatChange("color-red");
+			document.getElementById(btnStr + penId).classList.add("disabled");
 		}
 		else {
 			console.log("white!");
-			colorChange("color-white");
-			document.getElementById(statusState).innerHTML = 0;
-			document.getElementById(btnStr + penId).classList.remove("btn-lg");
+			seatChange("color-white");
+			document.getElementById(btnStr + penId).classList.remove("disabled");
 		}
 	}
 	else if (receiveData.mode === "StandSwitch") {
@@ -50,30 +49,35 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 			return;
 		}
 
-		if (receiveData.state === 2) {
+		if (receiveData.state === true) {
 			console.log("green!");
-			colorChange("color-green");
-			document.getElementById(statusState).innerHTML = 2;
+			seatChange("color-green");
 		}
-		else {
+		else if(receiveData.state === false) {
 			console.log("white!");
-			colorChange("colo-white");
-			document.getElementById(statusState).innerHTML = 0;
+			seatChange("colo-white");
+		}
+		else{
+			console.log(`ERROR : ${receiveData.state}`);
 		}
 	}
 }
 
 
-function colorChange(argStr) {
-	let colorList = ["color-gray", "color-white", "color-red", "color-green"];
+function seatChange(argStr) {
+	let colorList = [{key : "color-gray", state: -1, text : "秘匿中..."}, {key : "color-white", state: 0, text : "取り組み中"}, {key : "color-red", state: 1, text : "長考中..."}, {key : "color-green", state: 2, text : "完了!"}];
 	colorList.forEach(e => {
-		if (e === argStr) {
-			document.getElementById(btn).classList.add(e);
+		if (e.key === argStr) {
+			document.getElementById(btn).classList.add(e.key);
+			document.getElementById(statusState).innerText = e.state;
+			document.getElementById(seatState).innerText =  e.text;
+			// ここにseatStateの色変更のプロパティもつける．
 		}
 		else {
 			document.getElementById(btn).classList.remove(e);
 		}
 	});
 }
+
 
 export default seatJudge;

@@ -1,5 +1,6 @@
+import {drawingCharts, updateChart} from "../DrawingCharts.js";
 const SEATSIZE = 3;
-const THRESHHOLD = 2;
+const THRESHHOLD = 5;
 
 function onVibrationSum(argChannel) {
   let channel = argChannel;
@@ -17,6 +18,8 @@ function onVibrationSum(argChannel) {
           VibList.push(jd);
         }
       }
+
+      updateChart(sum, SEATSIZE);
 
       if (sum >= THRESHHOLD) {
         VibList.forEach((e) => {

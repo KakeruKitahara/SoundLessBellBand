@@ -12,7 +12,6 @@ async function lightVibration(receiveData) {
   await port.export("out"); // ポートを出力モードに設定．
 
   let mypenId = JSON.parse(document.getElementById("penId"));
-  console.log(mypenId);
 
   if (mypenId === receiveData.id) {
     if (receiveData.mode === "Light") {
@@ -33,10 +32,9 @@ async function lightVibration(receiveData) {
       }
     }
     if (receiveData.mode === "Vibration") {
-      console.log("Vib : 1");
-      for (let i = 0; i < 5; i++) {
-        await port.write(1);
-      }
+      await port.write(1);
+      await sleep(4000);
+      await port.write(0);
     }
   }
 };

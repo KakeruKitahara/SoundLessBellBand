@@ -1,10 +1,11 @@
-import switchRpi from "./send/SwitchRPi.js";
 import accelerator from "./send/Accelerator.js";
+import standSwitch from "./send/StandSwitch.js";
+import tactSwitch from "./send/TactSwitch.js";
 
 async function sendRpi(arg) {
   let channel = arg;
-  switchRpi("TactSwitch", channel);
-  // switchRpi("StandSwitch", channel);
+  standSwitch(channel);
+  tactSwitch(channel);
   accelerator(channel);
 }
 

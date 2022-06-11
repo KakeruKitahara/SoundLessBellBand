@@ -1,4 +1,5 @@
 import lightVibration from "./receive/LightVibration.js";
+import reflectName from "./receive/ReflectName.js";
 
 async function receiveRPi(arg) {
   let channel = arg;
@@ -7,12 +8,17 @@ async function receiveRPi(arg) {
 
 function RecieveMsg(msg) {
   let receiveData = JSON.parse(msg.data);
+  if (receiveData.address === "RPi") {
+    if (
 
-  if (
-    receiveData.address === "RPi" &&
-    (receiveData.mode === "Light" || receiveData.mode === "Vibration")
-  ) {
-    lightVibration(receiveData);
+      (receiveData.mode === "Light" || receiveData.mode === "Vibration")
+    ) {
+      lightVibration(receiveData);
+    }
+
+    if (receiveData.mode === "Name") {
+      reflectName(receiveData);
+    }
   }
 }
 
