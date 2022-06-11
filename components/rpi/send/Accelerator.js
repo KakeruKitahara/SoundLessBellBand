@@ -18,7 +18,7 @@ async function accelerator(argChannel) {
 }
 
 async function action() {
-  penId = JSON.parse(document.getElementById("penId").value);
+  penId = JSON.parse(document.getElementById("penId").q.value);
   prev_sumvalues = on_sumvalues;
   var xyz_values = await groveaccelerometer.read();
   on_sumvalues = xyz_values.x + xyz_values.y + xyz_values.z;
@@ -26,13 +26,7 @@ async function action() {
   if (0 <= diffvalues && diffvalues <= 1) {
     stop_cnt++;
     margin_act_cnt = Math.max(0, margin_act_cnt - 1);
-    //console.log(
-    //  `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, stop!`
-    //);
   } else {
-    //console.log(
-    //  `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, act!`
-    //);
     margin_act_cnt++;
   }
 
@@ -58,20 +52,3 @@ async function action() {
 }
 
 export default accelerator;
-
-/*to send
-var sendData = {}
-sendData.id = penId
-sendData.x = ax
-sendData.y = ay
-sendData.z = az
-var jsonstopring = JSON.stringify(sendData)
-channel.send(jsonstopring)
-
-to recieve
-channel.onmessage = function (msg) {
-  var sendData = JSON.parse(msg.data)
-  console.log(`data from ${sendData.penId}:`)
-  console.log(recieverData)
-}
-*/

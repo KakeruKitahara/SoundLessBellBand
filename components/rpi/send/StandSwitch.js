@@ -16,14 +16,11 @@ async function standSwitch(argChannel) {
 }
 
 async function action(val) {
-  console.log("b");
-  penId = document.getElementById("penId");
+  penId = document.getElementById("penId").q;
   sendData.id = JSON.parse(penId.value);
 
-  console.log(sendData.id);
 
   if (val === 0) {
-    // Standswichに必要な状態値．
     sendData.state = true;
   } else {
     sendData.state = false;
@@ -33,7 +30,6 @@ async function action(val) {
 
   var jsonmsg = JSON.stringify(sendData);
 
-  console.log(sendData);
 
   channel.send(jsonmsg);
   seconds = 0;

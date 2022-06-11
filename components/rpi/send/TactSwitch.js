@@ -18,10 +18,8 @@ async function tactSwitch(argChannel) {
 async function action() {
   if (seconds >= 2) {
     // チャタリング対策のため2秒以上の間隔が必要なので設定．
-    penId = document.getElementById("penId");
+    penId = document.getElementById("penId").q;
     sendData.id = JSON.parse(penId.value);
-
-    console.log(sendData.id);
 
     sendData.address = "Pc";
     sendData.mode = "TactSwitch";
@@ -29,7 +27,6 @@ async function action() {
     var jsonmsg = JSON.stringify(sendData);
 
     channel.send(jsonmsg);
-    console.log(sendData);
     seconds = 0;
   }
 }

@@ -22,7 +22,6 @@ function updateChart(sum, SEATSIZE) {
   cChart.data.datasets[0].data = [cnt, 100 - cnt];
   cChart.update();
   document.getElementById("rate").innerHTML = cnt;
-  // 文字の色を変えるといいかも？
 }
 
 

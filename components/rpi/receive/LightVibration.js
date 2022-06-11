@@ -11,7 +11,7 @@ async function lightVibration(receiveData) {
   const port = gpioAccess.ports.get(num);
   await port.export("out"); // ポートを出力モードに設定．
 
-  let mypenId = JSON.parse(document.getElementById("penId").value);
+  let mypenId = JSON.parse(document.getElementById("penId").q.value);
 
   if (mypenId === receiveData.id) {
     if (receiveData.mode === "Light") {

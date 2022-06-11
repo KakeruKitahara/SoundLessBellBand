@@ -15,16 +15,15 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 	btn = "btn" + penId;
 	seatState = "seatState" + penId;
 
-	console.log(statusState + " " + btn);
 
 	if (receiveData.mode === "TactSwitch") {
 		switch_cnt++;
 		if (switch_cnt % 2 === 1) { // 1度押したら赤色に変化．
-			console.log("gray!");
+			// console.log("gray!");
 			seatChange("color-gray");
 		}
 		else {
-			console.log("white!");
+			// console.log("white!");
 			seatChange("color-white");
 			// 0 : 通常
 			// -1 : 秘匿
@@ -39,18 +38,17 @@ async function seatJudge(receiveData) { // ボタンを押すとこの関数内�
 		let btnStr = "callBtn";
 
 		if (receiveData.state === 1) { // 1度押したら赤色に変化．
-			console.log("red!");
+			// console.log("red!");
 			seatChange("color-red");
 			document.getElementById(btnStr + penId).classList.add("disabled");
 		}
 		else {
-			console.log("white!");
+		// 	console.log("white!");
 			seatChange("color-white");
 			document.getElementById(btnStr + penId).classList.remove("disabled");
 		}
 	}
 	else if (receiveData.mode === "StandSwitch") {
-		console.log("a");
 		if (switch_cnt % 2 === 1) {
 			return;
 		}
