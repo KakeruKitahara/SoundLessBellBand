@@ -5,24 +5,23 @@ let penId;
 
 async function tactSwitch(argChannel) {
   channel = argChannel;
-  penId = document.getElementById("penId");
 
   var gpioAccess = await navigator.requestGPIOAccess();
   setInterval(() => {
     seconds++;
   }, 1000);
-  let switchPort = gpioAccess.ports.get(5);
+  let switchPort = gpioAccess.ports.get(6);
   await switchPort.export("in");
   switchPort.onchange = action;
 }
 
 async function action() {
-  if (seconds >= 2) { // チャタリング対策のため2秒以上の間隔が必要なので設定．
-
-    sendData.id = JSON.parse(penId.textContent);
+  if (seconds >= 2) {
+    // チャタリング対策のため2秒以上の間隔が必要なので設定．
+    penId = document.getElementById("penId");
+    sendData.id = JSON.parse(penId.value);
 
     console.log(sendData.id);
-    
 
     sendData.address = "Pc";
     sendData.mode = "TactSwitch";
@@ -30,6 +29,7 @@ async function action() {
     var jsonmsg = JSON.stringify(sendData);
 
     channel.send(jsonmsg);
+    console.log(sendData);
     seconds = 0;
   }
 }

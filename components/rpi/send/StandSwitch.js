@@ -16,8 +16,9 @@ async function standSwitch(argChannel) {
 }
 
 async function action(val) {
-  penId = JSON.parse(document.getElementById("penId").value);
-  sendData.id = JSON.parse(penId.textContent);
+  console.log("b");
+  penId = document.getElementById("penId");
+  sendData.id = JSON.parse(penId.value);
 
   console.log(sendData.id);
 
@@ -31,6 +32,8 @@ async function action(val) {
   sendData.address = "Pc";
 
   var jsonmsg = JSON.stringify(sendData);
+
+  console.log(sendData);
 
   channel.send(jsonmsg);
   seconds = 0;

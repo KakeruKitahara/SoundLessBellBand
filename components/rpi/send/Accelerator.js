@@ -14,11 +14,11 @@ async function accelerator(argChannel) {
   var port = i2cAccess.ports.get(1);
   groveaccelerometer = new GROVEACCELEROMETER(port, 0x53);
   await groveaccelerometer.init();
-  penId = JSON.parse(document.getElementById("penId").value);
   setInterval(action, 1000);
 }
 
 async function action() {
+  penId = JSON.parse(document.getElementById("penId").value);
   prev_sumvalues = on_sumvalues;
   var xyz_values = await groveaccelerometer.read();
   on_sumvalues = xyz_values.x + xyz_values.y + xyz_values.z;
