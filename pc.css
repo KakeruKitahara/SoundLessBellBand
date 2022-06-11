@@ -39,11 +39,9 @@ textarea {
 }
 
 .log {
-  /*  display: none; */
+  display: none;
 }
 
-.seat-state{
+.seat-state {
   font-weight: 600;
 }
-
-
