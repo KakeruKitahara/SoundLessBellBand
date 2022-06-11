@@ -14,7 +14,7 @@ async function accelerator(argChannel) {
   var port = i2cAccess.ports.get(1);
   groveaccelerometer = new GROVEACCELEROMETER(port, 0x53);
   await groveaccelerometer.init();
-  penId = document.getElementById("penId").textContent;
+  penId = JSON.parse(document.getElementById("penId").value);
   setInterval(action, 1000);
 }
 
@@ -26,13 +26,13 @@ async function action() {
   if (0 <= diffvalues && diffvalues <= 1) {
     stop_cnt++;
     margin_act_cnt = Math.max(0, margin_act_cnt - 1);
-    console.log(
-      `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, stop!`
-    );
+    //console.log(
+    //  `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, stop!`
+    //);
   } else {
-    console.log(
-      `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, act!`
-    );
+    //console.log(
+    //  `diff : ${diffvalues}, stop : ${stop_cnt}, act : ${margin_act_cnt}, act!`
+    //);
     margin_act_cnt++;
   }
 
@@ -45,10 +45,8 @@ async function action() {
   var sendData = {};
   sendData.mode = "Accelerator";
   sendData.address = "Pc"; // pc用に送信．
-  
-  sendData.id = JSON.parse(penId.textContent); // ペンごとのID．
 
-  console.log(sendData.id);
+  sendData.id = penId; // ペンごとのID．
 
   if (stop_cnt > 10) {
     sendData.state = 1; // 実行する状態．

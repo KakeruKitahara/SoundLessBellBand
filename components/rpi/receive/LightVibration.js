@@ -11,12 +11,11 @@ async function lightVibration(receiveData) {
   const port = gpioAccess.ports.get(num);
   await port.export("out"); // ポートを出力モードに設定．
 
-  let mypenId = JSON.parse(document.getElementById("penId"));
+  let mypenId = JSON.parse(document.getElementById("penId").value);
 
   if (mypenId === receiveData.id) {
     if (receiveData.mode === "Light") {
       if (receiveData.state === -1) {
-        console.log("light : 1");
         for (let i = 0; i < 3; i++) {
           await port.write(1);
           await sleep(100);
@@ -24,7 +23,6 @@ async function lightVibration(receiveData) {
           await sleep(100);
         }
       } else {
-        console.log("light : 0");
         await port.write(1);
         await sleep(100);
         await port.write(0);
@@ -37,6 +35,6 @@ async function lightVibration(receiveData) {
       await port.write(0);
     }
   }
-};
+}
 
 export default lightVibration;
