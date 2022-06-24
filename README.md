@@ -39,7 +39,7 @@
 ### ペンバンド
 #### 操作
 1. 2pinタクトスイッチ : 秘匿モードのon/off
-2. LEDライト : タクトスイッチ操作時の通知
+2. 赤色LEDライト : タクトスイッチ操作時の通知
 #### 機能
 3. 振動モータ (Mini vibration motor 2．0mm)
 4. 加速度センサ (Grove-Accelerometer (ADXL345))
@@ -94,17 +94,17 @@
 - relayServer.js : https://chirimen.org/remote-connection/
 - CSSで表現する背景パターン51種＋【コピペで簡単！/アニメーション有】 : https://webdesignfacts.net/entry/css-background-patterns/#gsc.tab=0
 
+## ■著作権について
+Copyright (C) 2021 KakeruKitahara
+このソースコードはMITライセンスを保有しています．
+
 ## ■免責
 生じた如何なる損害や修正や更新も責任を負いません．
 使用する際は自己責任でお願いします．
 
-## ■著作権について
-Copyright (C) 2021 KakeruKitahara
-
-一連のソースコードを，個人的な利用以外に使用することを禁止します．
-
 ## ■製作について
 本リポジトリは4日間という期間の中で，Web言語を用いてIoT製品を目標のもと，主にraspberry piとJavaScriptを用いて作成しました．
+
 ### ■工夫した点
 - 様々なペンにも対応できる​ようにバンドにした．
 - グラフによる可視化​．
