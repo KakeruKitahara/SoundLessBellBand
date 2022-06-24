@@ -14,15 +14,15 @@ textarea {
   width: 100%;
 }
 
-.color-gray {
-  background-color: #888888;
-  border: solid #000;
-}
-
 .color-white {
   background-color: #fff;
   border: solid #000;
   color: #000;
+}
+
+.color-gray {
+  background-color: #888888;
+  border: solid #000;
 }
 
 .color-green {
@@ -45,13 +45,13 @@ textarea {
 }
 
 #circleCharts {
-  margin: 5vh auto;
-  height: 15vh;
-  width: 30vw;
+  margin: 10px auto;
+  height: 500px;
+  width: 500px;
 }
 
 .inner {
-  margin: 5vh 0;
+  margin: 10px 0;
   display: flex;
   justify-content: space-evenly;
 }
@@ -63,7 +63,7 @@ textarea {
 }
 
 #title {
-  margin: 3vh 3vw;
+  margin: 10px 10px;
 }
 
 .small-title {
@@ -74,21 +74,32 @@ textarea {
   font-weight: bold;
 }
 
-.rate-div {
-  padding-bottom: 10px;
-}
 
-.btn {
+.color-white {
   height: 60px;
   width: 150px;
   font-size: 20px;
 }
 
-.outer {
+
+
+.outer{
+  height: 600px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #cecece;
 }
 
-/* 引用元 https://webdesignfacts.net/entry/css-background-patterns/#gsc.tab=0 */
+.wrapper{
+  height: 100vh;
+  position: relative;
+}
+
+/* 参照元 https://webdesignfacts.net/entry/css-background-patterns/#gsc.tab=0 */
 body {
   background: radial-gradient(black 3px, transparent 4px),
     radial-gradient(black 3px, transparent 4px),
