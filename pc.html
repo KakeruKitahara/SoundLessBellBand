@@ -16,181 +16,192 @@
 </head>
 
 <body>
+  <div class="outer">
 
-  <!-- タイトル  -->
-  <h1> SoundLess Ring Bell Band</h1>
+    <!-- タイトル  -->
+    <h1 id="title"> SoundLess Ring Bell Band</h1>
+    <h4 class="small-title">◆Student</h4>
 
-  <!-- button1  -->
-  <button class="btn color-white" id="btn1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample">
-    <div class="display-name player-name1" id="displayName1">No.1</div>
-  </button>
-
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name1"
-          id="playerName1">No.1</span>
-      </h3>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <hr class="name-line">
-    <div class="offcanvas-body">
-
-      <ul class="button-list">
-        <li>ID : 1</li>
-        <li>STATE : <span class="seat-state" id="seatState1">準備中...</span></li>
-        <li>NOTE</li>
-        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
-      </ul>
-      <button type="button" class="btn btn-primary call-btn" id="callBtn1">Ring</button>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Change Name
+    <div class="inner">
+      <!-- button1  -->
+      <button class="btn color-white" id="btn1" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <div class="display-name player-name1" id="displayName1">No.1</div>
       </button>
 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name1"
+              id="playerName1">No.1</span>
+          </h3>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr class="name-line">
+        <div class="offcanvas-body">
+
+          <ul class="button-list">
+            <li>ID : 1</li>
+            <li>STATE : <span class="seat-state" id="seatState1">準備中...</span></li>
+            <li>NOTE</li>
+            <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+          </ul>
+          <button type="button" class="btn btn-primary call-btn" id="callBtn1">Ring</button>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Change Name
+          </button>
+
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ID : 1 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name1">No.1</span>です．
+                  <input id="InputName1" type="text" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    id="submitChangeName1">Ok</button>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-              ID : 1 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name1">No.1</span>です．
-              <input id="InputName1" type="text" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="submitChangeName1">Ok</button>
-            </div>
+          </div>
+
+          <div class="status" id="status1">
+            <div>seat state : <span class="status-state" id="statusState1">-2</span></div>
+            <div> id : <span class="status-id" id="statusId1">1</span></div>
           </div>
         </div>
       </div>
 
-      <div class="status" id="status1">
-        <div>seat state : <span class="status-state" id="statusState1">-2</span></div>
-        <div> id : <span class="status-id" id="statusId1">1</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- button2  -->
-  <button class="btn color-white" id="btn2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample">
-    <div class="display-name player-name2" id="displayName2">No.2</div>
-  </button>
-
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name2"
-          id="playerName2">No.2</span>
-      </h3>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <hr class="name-line">
-    <div class="offcanvas-body">
-
-      <ul class="button-list">
-        <li>ID : 2</li>
-        <li>STATE : <span class="seat-state" id="seatState2">準備中...</span></li>
-        <li>NOTE</li>
-        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
-      </ul>
-      <button type="button" class="btn btn-primary call-btn" id="callBtn2">Ring</button>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Change Name
+      <!-- button2  -->
+      <button class="btn color-white" id="btn2" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <div class="display-name player-name2" id="displayName2">No.2</div>
       </button>
 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name2"
+              id="playerName2">No.2</span>
+          </h3>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr class="name-line">
+        <div class="offcanvas-body">
+
+          <ul class="button-list">
+            <li>ID : 2</li>
+            <li>STATE : <span class="seat-state" id="seatState2">準備中...</span></li>
+            <li>NOTE</li>
+            <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+          </ul>
+          <button type="button" class="btn btn-primary call-btn" id="callBtn2">Ring</button>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Change Name
+          </button>
+
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ID : 2 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name2">No.2</span>です．
+                  <input id="InputName2" type="text" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    id="submitChangeName2">Ok</button>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-              ID : 2 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name2">No.2</span>です．
-              <input id="InputName2" type="text" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="submitChangeName2">Ok</button>
-            </div>
+          </div>
+
+          <div class="status" id="status2">
+            <div>seat state : <span class="status-state" id="statusState2">-2</span></div>
+            <div> id : <span class="status-id" id="statusId2">2</span></div>
           </div>
         </div>
       </div>
 
-      <div class="status" id="status2">
-        <div>seat state : <span class="status-state" id="statusState2">-2</span></div>
-        <div> id : <span class="status-id" id="statusId2">2</span></div>
-      </div>
-    </div>
-  </div>
 
-
-  <!-- button3  -->
-  <button class="btn color-white" id="btn3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample">
-    <div class="display-name player-name3" id="displayName3">No.3</div>
-  </button>
-
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name3"
-          id="playerName3">No.3</span>
-      </h3>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <hr class="name-line">
-    <div class="offcanvas-body">
-
-      <ul class="button-list">
-        <li>ID : 3</li>
-        <li>STATE : <span class="seat-state" id="seatState3">準備中...</span></li>
-        <li>NOTE</li>
-        <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
-      </ul>
-      <button type="button" class="btn btn-primary call-btn" id="callBtn3">Ring</button>
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Change Name
+      <!-- button3  -->
+      <button class="btn color-white" id="btn3" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <div class="display-name player-name3" id="displayName3">No.3</div>
       </button>
 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title" id="offcanvasExampleLabel">NAME : <span class="player-name3"
+              id="playerName3">No.3</span>
+          </h3>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr class="name-line">
+        <div class="offcanvas-body">
+
+          <ul class="button-list">
+            <li>ID : 3</li>
+            <li>STATE : <span class="seat-state" id="seatState3">準備中...</span></li>
+            <li>NOTE</li>
+            <textarea name="comment" placeholder="ここにメモを書いてください。"></textarea>
+          </ul>
+          <button type="button" class="btn btn-primary call-btn" id="callBtn3">Ring</button>
+
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Change Name
+          </button>
+
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Lets change display name!!</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ID : 3 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name3">No.3</span>です．
+                  <input id="InputName3" type="text" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    id="submitChangeName3">Ok</button>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-              ID : 3 の席の表示名を変更します．現在の席の表示名は<span class="select-name player-name3">No.3</span>です．
-              <input id="InputName3" type="text" />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="submitChangeName3">Ok</button>
-            </div>
+          </div>
+
+          <div class="status" id="status3">
+            <div>seat state : <span class="status-state" id="statusState3">-2</span></div>
+            <div> id : <span class="status-id" id="statusId3">3</span></div>
           </div>
         </div>
       </div>
-
-      <div class="status" id="status3">
-        <div>seat state : <span class="status-state" id="statusState3">-2</span></div>
-        <div> id : <span class="status-id" id="statusId3">3</span></div>
-      </div>
     </div>
-  </div>
 
-  <!-- ステータスをスイッチ  -->
-  <div>
-    <h4> どのくらい手が止まってるか確認しよう．</h4>
+    <!-- ステータスをスイッチ  -->
+    <div>
+      <h4 div class="small-title">◆Ratio of people thinking</h4>
       <canvas id="circleCharts"></canvas>
-      <div class="rate-div"><span id="rate">0</span>%</div>
+      <div class="rate-div">Thinking...(-ω-；) : <span id="rate">0</span>%</div>
+    </div>
   </div>
 
 
