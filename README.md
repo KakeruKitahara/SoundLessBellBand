@@ -95,7 +95,7 @@
 - CSSで表現する背景パターン51種＋【コピペで簡単！/アニメーション有】 : https://webdesignfacts.net/entry/css-background-patterns/#gsc.tab=0
 
 ## ■著作権について
-Copyright (C) 2021 KakeruKitahara
+Copyright (C) 2022 KakeruKitahara
 このソースコードはMITライセンスを保有しています．
 
 ## ■免責
